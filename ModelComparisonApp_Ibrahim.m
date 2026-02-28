@@ -36,7 +36,7 @@ classdef ModelComparisonApp_Ibrahim < matlab.apps.AppBase
 
     % Properties for storing data
     properties (Access = private)
-        models = {'KNN', 'ANN', 'SVM', 'EN', 'DA', 'NB', 'DT'};
+        models = {'KNN', 'ANN', 'SVM', 'EM', 'DA', 'NB', 'DT'};
         modelFunctions = {@predict_optimized_knn, ...
                           @predict_optimized_ann, ...
                           @predict_optimized_svm, ...
@@ -61,11 +61,11 @@ classdef ModelComparisonApp_Ibrahim < matlab.apps.AppBase
         % Code that executes after component creation
         function startupFcn(app)
             % Initialize the app with enhanced visual settings
-            app.ModelSelector.Items = {'KNN', 'ANN', 'SVM', 'EN', 'DA', 'NB', 'DT'};
+            app.ModelSelector.Items = {'KNN', 'ANN', 'SVM', 'EM', 'DA', 'NB', 'DT'};
             app.ModelSelector.Value = 'KNN';
             
             % Initialize model selection dropdown
-            app.ModelSelectionDropdown.Items = {'KNN', 'ANN', 'SVM', 'EN', 'DA', 'NB', 'DT'};
+            app.ModelSelectionDropdown.Items = {'KNN', 'ANN', 'SVM', 'EM', 'DA', 'NB', 'DT'};
             app.ModelSelectionDropdown.Value = 'KNN';
             
             % Initialize selected models list
@@ -459,8 +459,8 @@ classdef ModelComparisonApp_Ibrahim < matlab.apps.AppBase
                         abbreviatedNames{i} = 'ANN';
                     case 'SVM'
                         abbreviatedNames{i} = 'SVM';
-                    case 'EN'
-                        abbreviatedNames{i} = 'EN';
+                    case 'EM'
+                        abbreviatedNames{i} = 'EM';
                     case 'DA'
                         abbreviatedNames{i} = 'DA';
                     case 'NB'
@@ -1111,7 +1111,7 @@ end
 
             % Create ModelSelectionDropdown
             app.ModelSelectionDropdown = uidropdown(app.ModelSelectionPanel);
-            app.ModelSelectionDropdown.Items = {'KNN', 'ANN', 'SVM', 'EN', 'DA', 'NB', 'DT'};
+            app.ModelSelectionDropdown.Items = {'KNN', 'ANN', 'SVM', 'EM', 'DA', 'NB', 'DT'};
             app.ModelSelectionDropdown.ValueChangedFcn = createCallbackFcn(app, @ModelSelectionDropdownValueChanged, true);
             app.ModelSelectionDropdown.Position = [140, 260, 120, 20];
             app.ModelSelectionDropdown.FontWeight = 'bold';
@@ -1214,7 +1214,7 @@ end
 
             % Create ModelSelector
             app.ModelSelector = uidropdown(app.ResultsVisualizationPanel);
-            app.ModelSelector.Items = {'KNN', 'ANN', 'SVM', 'EN', 'DA', 'NB', 'DT'};
+            app.ModelSelector.Items = {'KNN', 'ANN', 'SVM', 'EM', 'DA', 'NB', 'DT'};
             app.ModelSelector.ValueChangedFcn = createCallbackFcn(app, @ModelSelectorValueChanged, true);
             app.ModelSelector.Position = [158, 260, 150, 20];
             app.ModelSelector.FontWeight = 'bold';
